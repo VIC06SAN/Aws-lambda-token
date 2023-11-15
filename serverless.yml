@@ -1,0 +1,18 @@
+service: aws-lambda-token
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  profile: deploy-aws-card
+  stage: dev
+  region: us-east-2
+
+functions:
+  hello:
+    handler: handler.hello
+    event:
+      - http:
+          method: post
+          path: /token
